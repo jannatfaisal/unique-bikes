@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Bikes</title>
+    <!-- Own CSS Link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap Cdn for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <img src="img/Group 4.png" alt="Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Bikes</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="icons">
+                <i class="bi bi-cart2" onclick="showCart()" data-count="0"></i>
+                <div id="cartContent" class="cart-content">
+                    <h3>Your Cart</h3>
+                </div>
+                <i class="bi bi-person-circle"></i>
+            </div>
+            <div class="burger" onclick="toggleMenu()">
+                <i class="bi bi-list"></i>
+            </div>
+        </nav>
+
+        <section class="product-display">
+            <div class="product-image-container">
+                <h1 class="product-title">THE EUPHORIA</h1>
+                <img id="mainImage" src="img/Group 7.png" alt="Bike" class="product-image">
+            </div>
+
+            <div class="product-options">
+                <div class="color-selection">
+                    <h3>COLORS</h3>
+                    <div class="color-buttons">
+                        <button class="color-btn black" onclick="applyColorFilter('black')"></button>
+                        <button class="color-btn white" onclick="applyColorFilter('white')"></button>
+                        <button class="color-btn gray" onclick="applyColorFilter('gray')"></button>
+                    </div>
+                </div>
+
+                <div class="size-selection">
+                    <h3>SIZE</h3>
+                    <button onclick="changeSize('small')">SMALL</button>
+                    <button onclick="changeSize('medium')">MEDIUM</button>
+                    <button onclick="changeSize('large')">LARGE</button>
+                </div>
+
+                <div class="product-info">
+                    <p class="price" id="price"><span>Price: </span>$2,500</p>
+                    <p id="weight">WEIGHT <span>14.18KG</span></p>
+                    <button onclick="addToCart('bike1')" class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="cart-message" id="cartMessage">Item added to cart</div>
+            </div>
+        </section>
+
+    </header>
+
+    <div class="thumbnail-box">
+        <div class="thumbnail-images">
+            <img src="img/top-img2.png" onclick="changeImage('img/Group 7.png', 'bike1')" alt="Bike 1">
+            <img src="img/top-img1.png" onclick="changeImage('img/top-img1.png', 'bike2')" alt="Bike 2">
+            <img src="img/top-img2.png" onclick="changeImage('img/Group 7.png', 'bike3')" alt="Bike 3">
+        </div>
+    </div>
+
+    <section class="customize">
+        <h2>Customize</h2>
+        <hr>
+        <div class="slider" id="image-slider">
+            <div class="slides">
+                <img src="img/slide-img1.jfif" alt="Image 1">
+                <img src="img/slide-img2.png" alt="Image 2">
+                <img src="img/slide-img3.png" alt="Image 3">
+                <img src="img/slide-img1.jfif" alt="Image 1">
+                <img src="img/slide-img2.png" alt="Image 2">
+                <img src="img/slide-img3.png" alt="Image 3">
+                <img src="img/slide-img1.jfif" alt="Image 1">
+                <img src="img/slide-img2.png" alt="Image 2">
+                <img src="img/slide-img3.png" alt="Image 3">
+            </div>
+            <div class="next" onclick="moveSlide(1, 'image-slider')"><i class="bi bi-arrow-right"></i></div>
+        </div>
+    </section>
+
+    <section class="section3">
+        <div class="tab-container">
+            <div class="tabs">
+                <span class="tab active" onclick="showContent('description')">DESCRIPTION</span>
+                <span class="tab" onclick="showContent('specs')">SPECS</span>
+            </div>
+            <hr class="underline">
+        </div>
+
+        <div id="description" class="tab-content">
+            <h3>Be unique with your choice of ride.</h3>
+            <p>The EUPHORIA turns obstacles into features. Its nimble, poppy feel makes even the most mundane rides feel
+                like they’re loaded with features to hop, skip, and jump over. It's the kind of bike that makes new
+                trails feel as familiar as the back of your hand.</p>
+            <p>27.5 is the fun-sized wheel size. Smaller wheels provide an ideal balance between toughness and
+                weight-saving, making them the most fleet-footed, whether launching logs or weaving through stumps. With
+                its quick and agile character, it has become a go-to plaything for progressive riders worldwide and the
+                only contender on any backyard trails.</p>
+        </div>
+
+        <div id="specs" class="tab-content" style="display: none;">
+            <h3>Specifications</h3>
+            <ul>
+                <li>Frame: Aluminum</li>
+                <li>Wheels: 27.5 inches</li>
+                <li>Suspension: Full Suspension</li>
+                <li>Brakes: Hydraulic Disc</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section-img">
+        <button class="follow-btn">Follow us @uniquebikes</button>
+        <div class="image-grid">
+            <img src="img/img3.jfif" alt="Bike Image 1" class="img1">
+            <img src="img/img5.jfif" alt="Bike Image 2" class="img2">
+            <img src="img/img1.jfif" alt="Bike Image 3" class="img3">
+            <img src="img/img4.jfif" alt="Bike Image 4" class="img4">
+            <img src="img/img2.jfif" alt="Bike Image 5" class="img5">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="img/Group 4.png" alt="Unique Bikes Logo" class="footer-logo">
+                <p>&copy; Copyright Unique Bikes</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>FAQs</h3>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Support</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Assembly Guides</a></li>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <h3>service@uniquebikes.com</h3>
+                <p>45 Fairground Rd, New York, United States</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- OWN JS LINK -->
+    <script src="./app.js"></script>
+</body>
+
+</html>
